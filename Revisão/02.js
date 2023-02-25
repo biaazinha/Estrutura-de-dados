@@ -93,4 +93,13 @@ function somarElementosParImpar(vetor){
 }
 
 function somarIndice(vetor){
+    let n1 = Number(prompt(`Digite o índice inicial: `));
+    let n2 = Number(prompt(`Digite o índice final: `));
+    let soma = 0;
+
+    for(i = n1; i < (n2 + 1); i++){
+        soma += vetor[i]
+    }
+    console.log(soma);
+
 }
