@@ -59,6 +59,30 @@ function qntNegativo(vetor){
 
 
 function mediaPares(vetor){
+    let qnt = 0;
+
+    for (i = 0; i < vetor.length; i++){
+
+        if(vetor[i]%2 == 0){
+            qnt += 1
+        }
+    
+    }
+    console.log(`A quantidade de notas pares é ${qnt}`);
+
+    let soma = 0;
+
+    for (i = 0; i < vetor.length; i++){
+
+        if(vetor[i]%2 == 0){
+            soma += vetor[i]
+        }
+    
+    }
+
+    const media = soma / qnt
+
+    console.log(`A média das notas pares é ${media}`)
 }
 
 
@@ -67,6 +91,15 @@ function somaMultiplos(vetor){
 
 
 function listarImpares(vetor){
+
+    let impar = 0
+    for(i = 0; i < vetor.length; i++){
+        if(vetor[i]%2 != 0){
+            impar = vetor[i]
+        }
+    }
+    console.log(impar);
+    
 }
 
 
