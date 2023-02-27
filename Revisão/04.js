@@ -59,24 +59,31 @@ function qntNegativo(vetor){
 
 
 function mediaPares(vetor){
-    let media
-    let soma = 0
-    let cont = 0
+    let qnt = 0;
 
-    for (let i = 0; i < vetor.length; i++) {
+    for (i = 0; i < vetor.length; i++){
+
+        if(vetor[i]%2 == 0){
+            qnt += 1
+        }
+    
+    }
+    console.log(`A quantidade de notas pares é ${qnt}`);
+
+    let soma = 0;
+
+    for (i = 0; i < vetor.length; i++){
+
         if(vetor[i]%2 == 0){
             soma += vetor[i]
-            cont++
         }
+    
     }
 
-    if(cont != 0){
-        media = soma/cont
-        console.log(`Média dos pares: ${media}`)
-    }
-    else{
-        console.log(`Não existe números pares`)
-    }
+    const media = soma / qnt
+
+    console.log(`A média das notas pares é ${media}`)
+
 }
 
 
@@ -100,6 +107,7 @@ function somaMultiplos(vetor){
 
 
 function listarImpares(vetor){
+
     let impar = []
 
     for (let i = 0; i < vetor.length; i++) {
@@ -166,8 +174,10 @@ function numerosRepetidos(vetor){
 function removerRepetidos(vetor){
  
    vetor.forEach((valor,index) => {
+
        for (let i = 0; i < vetor.length; i++) {
-        if (valor == vetor[i]) {
+
+       if (valor == vetor[i]) {
             if (index != i) {
                 vetor.splice(i,1)
             }
