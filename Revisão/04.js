@@ -1,5 +1,5 @@
 function principal(){
-    let vetor = [1, 2, 3, -2, -6, 10, -10];
+    let vetor = [1, 2, 3, -2, -6, 10, -10, 10];
     let opcao = "";
 
     console.log(vetor);
@@ -59,28 +59,122 @@ function qntNegativo(vetor){
 
 
 function mediaPares(vetor){
+    let media
+    let soma = 0
+    let cont = 0
+
+    for (let i = 0; i < vetor.length; i++) {
+        if(vetor[i]%2 == 0){
+            soma += vetor[i]
+            cont++
+        }
+    }
+
+    if(cont != 0){
+        media = soma/cont
+        console.log(`Média dos pares: ${media}`)
+    }
+    else{
+        console.log(`Não existe números pares`)
+    }
 }
 
 
 function somaMultiplos(vetor){
+    let multiplos3 = 0
+    let multiplos5 = 0
+    let soma = 0
+
+    for (let i = 0; i < vetor.length; i++) {
+        if(vetor[i] %3 == 0){
+           multiplos3 += vetor[i]
+        }
+        else if(vetor[i] %5 == 0){
+            multiplos5 += vetor[i]
+        }
+    }
+
+    soma = multiplos3 + multiplos5
+    console.log(`A soma dos múltiplos de 3 e 5 são: ${soma}`)
 }
 
 
 function listarImpares(vetor){
+    let impar = []
+
+    for (let i = 0; i < vetor.length; i++) {
+        if(vetor[i]%2 != 0){
+          impar.push(vetor[i])
+        }
+    }
+
+    console.log(`Os elementos ímpares são: ${impar}`)
+
 }
 
 
 function menorElemento(vetor){
+    let menor = vetor[0]
+
+    for (let i = 0; i < vetor.length; i++) {
+       if(menor > vetor[i]){
+         menor = vetor[i]
+       }
+    }
+    console.log(`O menor elemento é: ${menor}`)
 }
 
 
 function posicaoMaior(vetor){
+    let posicao = 0
+    let maior = vetor[0]
+
+    for (let i = 0; i < vetor.length; i++) {
+
+        if(maior < vetor[i]){
+          maior = vetor[i]
+          posicao = i
+        }
+     }
+     console.log(`O maior elemento é: ${maior} e sua posição é: ${posicao}`)
 }
 
 
 function numerosRepetidos(vetor){
+    let vetor2 =[]
+    let msg = ""
+    for (let i = 0; i < vetor.length; i++) {    
+         vetor2.push(vetor[i])
+
+    }
+
+    vetor.forEach((valor,index)=> {
+       
+        for (let i = 0; i < vetor2.length; i++) {
+            if (valor == vetor2[i] && index != i) {    
+                msg = "Há numeros repetidos"
+            }else{
+                msg= "Não há repetidos"
+            }
+       }
+        
+    });
+    console.log(msg)
 }
 
 
 function removerRepetidos(vetor){
+ 
+   vetor.forEach((valor,index) => {
+       for (let i = 0; i < vetor.length; i++) {
+        if (valor == vetor[i]) {
+            if (index != i) {
+                vetor.splice(i,1)
+            }
+        }
+        
+       }
+   });
+
+   console.log(vetor)
 }
