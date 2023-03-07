@@ -74,8 +74,8 @@ vet2.reverse()
 
 //vetor aleatório de 1000
 const vet3 = []
-for (let i = 0; i < Math.floor(vet3); i++) {
-  vet3.push(i)
+for (let i = 0; i < 1000; i++) {
+  vet3[i] = Math.floor(Math.random()*1000)
 }
 
 
