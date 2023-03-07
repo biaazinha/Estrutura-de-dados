@@ -1,5 +1,5 @@
 //troca e compara a primeira posição com a segunda toda hora percorrendo o vetor
-function selecaoDireta(vetor){
+function bubblesort(vetor){
     
     for(i=0; i<vetor. length-1; i++){
         var aux
@@ -17,14 +17,14 @@ function selecaoDireta(vetor){
 let nums = [77, 44, 22, 33, 99, 55, 88, 0, 66, 11 ]
 
 console.log(nums)
-selecaoDireta(nums)
+bubblesort(nums)
 console.log(nums)
 
 
 console.time(`Bubblesort1...`)
-selecaoDireta(nums)
+bubblesort(nums)
 console.timeEnd(`Bubblesort1...`)
 
 console.time(`Bubblesort...`)
-selecaoDireta(nums)
+bubblesort(nums)
 console.timeEnd(`Bubblesort...`)

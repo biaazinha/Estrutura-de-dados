@@ -1,15 +1,13 @@
 function insercaoDireta(vetor){
-
-    for(let i = 0; i < vetor.length; i++){
-        let analise = i;
-        while(analise > 0 && vetor[analise] < vetor[analise - 1]){
-            let itemAnalise = vetor[analise];
-            let itemAnterior = vetor[analise - 1];
-
-            vetor[analise] = itemAnterior
-            vetor[analise - 1] = itemAnalise
-
-            analise--
+    for(var i = 1; i < vetor.length; i++){
+        for(var j = 0; j < i; j++){
+            if(vetor[i] < vetor[j]){
+                var aux = vetor[i]
+                for(var k = i; k > j; k--){
+                    vetor[k] = vetor[k - 1]
+                }
+                vetor[j] = aux
+            }
         }
     }
 }
