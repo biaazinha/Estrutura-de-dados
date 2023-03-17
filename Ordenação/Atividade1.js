@@ -1,11 +1,10 @@
-//Atividade 1 - Bianca Karoline Ramos 
+//Atividade 1 - Bianca Karoline Ramos e Giovanna Cerino
 
 //bubbleSort
 function bubblesort(vetor) {
 
     for (i = 0; i < vetor.length - 1; i++) {
         var aux
-
         for (j = 0; j < vetor.length - i - 1; j++) {
             if (vetor[j] > vetor[j + 1]) {
                 aux = vetor[j]
@@ -14,8 +13,8 @@ function bubblesort(vetor) {
             }
         }
     }
+    return vetor
 }
-
 
 //seleção Direta
 function selecaoDireta(vetor) {
@@ -35,8 +34,8 @@ function selecaoDireta(vetor) {
         vetor[i] = vetor[pos]
         vetor[pos] = aux
     }
+    return vetor
 }
-
 
 //Inserção Direta
 function insercaoDireta(vetor) {
@@ -51,34 +50,133 @@ function insercaoDireta(vetor) {
             }
         }
     }
+    return vetor
 }
-
 
 
 //vetor ordenado de 1000
-const vet1 = []
-const size = 1000
-for (let i = 0; i < size; i++) {
-  vet1.push(i)
+let ordenado = []
+for (let i = 0; i < 1000; i++) {
+  ordenado.push(i)
 }
-
 
 //vetor invertido de 1000
-const vet2 = []
-const size2 = 1000
-for (let i = 0; i < size2; i++) {
-  vet2.push(i)
+let invertido = []
+for (let i = 0; i < 1000; i++) {
+  invertido.push(i)
 }
-vet2.reverse()
-
+invertido.reverse()
 
 //vetor aleatório de 1000
-const vet3 = []
+let desordenado = []
 for (let i = 0; i < 1000; i++) {
-  vet3[i] = Math.floor(Math.random()*1000)
+  desordenado[i] = Math.floor(Math.random()*1000)
 }
 
 
-bubblesort(vet1)
-selecaoDireta(vet1)
-insercaoDireta(vet1)
+//BUBBLESORT
+let bubbleSort1 = ordenado.slice() 
+let bubbleSort2 = invertido.slice() 
+let bubbleSort3 = desordenado.slice() 
+
+//bubbleSort ordenado:
+console.log(`BubbleSort ordenado: ${bubblesort(bubbleSort1)}`)
+
+console.log("Tempo de execução:")
+console.time("ordenado...")
+bubblesort(bubbleSort1)
+console.timeEnd("ordenado...")
+
+console.log("\n")
+
+//bubbleSort invertido:
+console.log(`BubbleSort invertido: ${bubblesort(bubbleSort2)}`)
+
+console.log("Tempo de execução:")
+console.time("invertido...")
+bubblesort(bubbleSort2)
+console.timeEnd("invertido...")
+
+console.log("\n")
+
+//bubbleSort desordenado:
+console.log(`BubbleSort desordenado: ${bubblesort(bubbleSort3)}`) 
+
+console.log("Tempo de execução:")
+console.time("desordenado...")
+bubblesort(bubbleSort3)
+console.timeEnd("desordenado...")
+
+console.log("\n")
+
+
+//SELEÇÃO DIRETA
+let selecaoDireta1 = ordenado.slice() 
+let selecaoDireta2 = invertido.slice() 
+let selecaoDireta3 = desordenado.slice() 
+
+//seleçao direta ordenado:
+console.log(`Seleçao Direta ordenado: ${selecaoDireta(selecaoDireta1)}`)
+
+console.log("Tempo de execução:")
+console.time("ordenado...")
+selecaoDireta(selecaoDireta1)
+console.timeEnd("ordenado...")
+
+console.log("\n")
+
+//seleção direta invertido:
+console.log(`Seleçao Direta invertido: ${selecaoDireta(selecaoDireta2)}`)
+
+console.log("Tempo de execução:")
+console.time("invertido...")
+selecaoDireta(selecaoDireta2)
+console.timeEnd("invertido...")
+
+console.log("\n")
+
+//seleçao direta desordenado:
+console.log(`Seleçao Direta desordenado: ${selecaoDireta(selecaoDireta3)}`)
+
+console.log("Tempo de execução:")
+console.time("desordenado...")
+selecaoDireta(selecaoDireta3)
+console.timeEnd("desordenado...")
+
+console.log("\n")
+
+
+//INSERÇÃO DIRETA
+let insercaoDireta1 = ordenado.slice() 
+let insercaoDireta2 = invertido.slice() 
+let insercaoDireta3 = desordenado.slice() 
+
+//inserçao direta ordenado:
+console.log(`Inserçao Direta ordenado: ${insercaoDireta(insercaoDireta1)}`)
+
+console.log("Tempo de execução:")
+console.time("ordenado...")
+insercaoDireta(insercaoDireta1)
+console.timeEnd("ordenado...")
+
+console.log("\n")
+
+//inserção direta invertido:
+console.log(`Inserçao Direta invertido: ${insercaoDireta(insercaoDireta2)}`)
+
+console.log("Tempo de execução:")
+console.time("invertido...")
+insercaoDireta(insercaoDireta2)
+console.timeEnd("invertido...")
+
+console.log("\n")
+
+//inserçao direta desordenado:
+console.log(`Inserçao Direta desordenado: ${insercaoDireta(insercaoDireta3)}`)
+
+console.log("Tempo de execução:")
+console.time("desordenado...")
+bubblesort(insercaoDireta3)
+console.timeEnd("desordenado...")
+
+console.log("\n")
