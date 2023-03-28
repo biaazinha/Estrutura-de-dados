@@ -648,7 +648,7 @@ quickSort(quickSortA2,0,quickSortA2.length-1)
 console.timeEnd("aleatório1000...")
 console.log("\n")
 
-
+      
 console.log(`QuickSort aleatório de 10000: ${quickSort(quickSortA3,0,quickSortA3.length-1)}`)
 
 console.time("aleatório10000...")
