@@ -1,5 +1,6 @@
-//Fução para verificar se uma dada expressão aritmetica possui ou não parenteses, colchetes e chaves corretamente utilizados, tanto numero quanto posição
 /*
+Fução para verificar se uma dada expressão aritmetica possui ou não parenteses, colchetes e chaves corretamente utilizados, tanto numero quanto posição
+
 -criar uma pilha vazia
 -criar uam string com simbolos de abertura
 -criar uam string com simbolos de fechamento
@@ -34,5 +35,5 @@ function verificaExpressao(expressao){
     return pilha.length === 0;
 }
 
-let expressao = "{1+[2(3+6)}"
+let expressao = "{(1+2)*3}[4-9]"
 console.log(verificaExpressao(expressao))
