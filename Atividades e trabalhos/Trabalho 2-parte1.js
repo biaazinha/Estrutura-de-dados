@@ -1,11 +1,7 @@
-//parte 1 
-function verificaExpressao(expressao){
+//parte 1 - Bianca Karoline Ramos e Giovanna Cerino
+function verifica(expressao){
     let pilha = [];
-    let ordem = {
-        '(':')',
-        '[':']',
-        '{':'}',
-    };
+    let ordem = {'(':')', '[':']', '{':'}'};
 
     for(let i = 0; i < expressao.length; i ++){
         let x = expressao[i];
@@ -21,7 +17,8 @@ function verificaExpressao(expressao){
     return pilha.length === 0;
 }
 
-let expressao = "{(1+2)*3}[4-9]"
-console.log(verificaExpressao(expressao))
+let expressaoT = "{(1+2)*3[4-9]}"    //true
+let expressaoF = "{(1+2)*3[4-9}"     //false
 
-//parte 2
+console.log(verifica(expressaoT)) 
+console.log(verifica(expressaoF))
