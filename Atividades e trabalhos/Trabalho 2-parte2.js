@@ -52,8 +52,12 @@ function HashTable(size) {
   
   // Exemplo de uso
   const tabela = HashTable(5);
-  tabela.insert("NIVOZUAEFRBL");
-
+  tabela.insert('a');
+  tabela.insert('b');
+  tabela.insert('c');
+  tabela.insert('d');
+  tabela.insert('e');
+  tabela.insert('f'); // A tabela está cheia
   tabela.print(); // ['a', 'b', 'c', 'd', 'e']
   console.log(tabela.search('c')); // 2
   console.log(tabela.search('f')); // -1

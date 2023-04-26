@@ -29,3 +29,12 @@ function listaLinear() {
 }
 
 listaLinear()
+
+
+
+return {
+    gerar: gerar,
+    converter: converter,
+    inserir: inserir,
+    buscar: buscar,
+}
