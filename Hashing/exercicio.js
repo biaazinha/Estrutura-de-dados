@@ -1,44 +1,37 @@
-function HashTable(tamanho) {
+function TabelaHash(tamanho) {
 
-  //criar um array de tamanho indefinido
-  const tabela = new Array(tamanho).fill(undefined);
+  const tabela = new Array(tamanho).fill(null);
 
-  //utilizar tabela do alfabeto
   function gerar(chave) {
-    var codigo = chave.toLowerCase().charCodeAt() - 96;
+    var codigo = chave.charCodeAt(0) - 64;
     return codigo;
   }
 
-  //converter as letras em números 
   function converter(chave) {
-    var num = [];
-    for (let i = 0; i < chave.length; i++) {
-      num.push(gerar(chave[i]));
-    }
+    var num = gerar(chave);
     return num % tamanho;
   }
 
-  //inserir chaves na tabela
   function inserir(chave) {
     const index = converter(chave);
     let i = index;
-    while (tabela[i] !== undefined) {
+
+    while (tabela[i] !== null) {
       i = (i + 1) % tamanho;
       if (i === index) {
         return false;
       }
     }
+
     tabela[i] = chave;
     return true;
   }
 
-  inserir("NIVOZUAEFRBL")
-  
-  //buscar chaves na tabela
   function buscar(chave) {
     const index = converter(chave);
     let i = index;
-    while (tabela[i] !== undefined) {
+
+    while (tabela[i] !== null) {
       if (tabela[i] === chave) {
         return i;
       }
@@ -47,7 +40,12 @@ function HashTable(tamanho) {
         return -1;
       }
     }
+
     return -1;
+  }
+
+  function exibir() {
+    console.log(tabela);
   }
 
   return {
@@ -55,10 +53,29 @@ function HashTable(tamanho) {
     converter: converter,
     inserir: inserir,
     buscar: buscar,
-  }
-
+    exibir: exibir,
+  };
 }
 
-//uso:
-//passar de parametro o tamanho da tabela
-const tabela = HashTable(5);
+const tabela = TabelaHash(14);
+
+tabela.inserir("N");
+tabela.inserir("I");
+tabela.inserir("V");
+tabela.inserir("O");
+tabela.inserir("Z");
+tabela.inserir("U");
+tabela.inserir("A");
+tabela.inserir("E");
+tabela.inserir("F");
+tabela.inserir("R");
+tabela.inserir("B");
+tabela.inserir("L");
+tabela.inserir("M");
+tabela.inserir("S");
+tabela.inserir("C");  
+
+let letraEncontrada = tabela.buscar("A");  // 3
+console.log("Letra encontrada:", letraEncontrada);
+
+tabela.exibir("\n");

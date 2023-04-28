@@ -14,4 +14,3 @@ ou
 endereçamento aberto
 chaves armazenadas na propria tabela 
 */
-
