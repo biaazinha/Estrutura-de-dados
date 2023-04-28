@@ -8,7 +8,7 @@ function TabelaHash(tamanho) {
   //utilizar tabela do alfabeto
   function gerar(chave) {
     var codigo = chave.charCodeAt(0) - 64;
-    return codigo;
+    return codigo
   }
 
   //converter as letras em números e fazer a divisão
@@ -53,7 +53,10 @@ function TabelaHash(tamanho) {
 
   //exibir tabela
   function exibir() {
-    console.log(tabela);
+    for (let i = 0; i < tabela.length; i++) {
+      console.log("[", tabela[i], "]");
+    }
+    return tabela;
   }
 
   return {
@@ -66,12 +69,12 @@ function TabelaHash(tamanho) {
 }
 
 //passar de parametro o tamanho da tabela
-const tabela = TabelaHash(14);
+const tabela = TabelaHash(13);
 
 //inserindo 15 exemplos de letras
-tabela.inserir("N");  // (14/14) = %0 - pos 0
-tabela.inserir("I");  // (9/14) = %5 - pos 5
-tabela.inserir("V");  // (23/14) = %9 - pos 9
+tabela.inserir("N");
+tabela.inserir("I");
+tabela.inserir("V");
 tabela.inserir("O");
 tabela.inserir("Z");
 tabela.inserir("U");
@@ -81,13 +84,12 @@ tabela.inserir("F");
 tabela.inserir("R");
 tabela.inserir("B");
 tabela.inserir("L");
-tabela.inserir("M");
-tabela.inserir("S");
-tabela.inserir("C");  //não vai entrar na tabela pois esgotou seu espaço
+
+//caso um espaço da tabela não seja ocupado será impresso "null"
 
 //buscar a posição do índice de uma letra na tabela
 let letraEncontrada = tabela.buscar("A");  // índice 3
-console.log("Letra encontrada:", letraEncontrada);
+console.log("Letra posicionada no índice indicado:", letraEncontrada);
 
 //exibindo tabela final
-tabela.exibir();
+tabela.exibir()
