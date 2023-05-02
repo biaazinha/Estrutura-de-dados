@@ -68,6 +68,7 @@ function TabelaHash(tamanho) {
   };
 }
 
+
 //passar de parametro o tamanho da tabela
 const tabela = TabelaHash(13);
 
