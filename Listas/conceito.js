@@ -1,4 +1,10 @@
-//Lista encadeada simples
+/*
+Lista encadeada simples
+Fazer um programa com as seguintes funções de lista encadeada:
+a)Inserir um elemento no final da lista.
+b)Retornar a quantidade de elementos da lista.
+*/
+
 function LinkedList(){
 
     let Node = function (element) {
