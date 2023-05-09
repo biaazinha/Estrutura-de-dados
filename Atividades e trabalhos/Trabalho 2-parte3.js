@@ -1,4 +1,4 @@
-//parte 2 - Bianca Karoline Ramos e Giovanna Cerino
+//parte 3 - Bianca Karoline Ramos e Giovanna Cerino
 
 function LinkedList(){
 
