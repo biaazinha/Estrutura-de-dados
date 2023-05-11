@@ -17,7 +17,7 @@ function LinkedList(){
 
     this.append = function (element){
         let node = new Node(element),
-         current;
+            current;
         if(head === null){ //primeiro nó da lista
             head = node;
         }else{
@@ -34,13 +34,25 @@ function LinkedList(){
         return length;
     };
 
+    this.toString = function() {
+        let current = head, string = 'Lista: '
+
+        while(current) {
+            string+=current.element + (current.next ? ' -> ' : '')
+            current = current.next
+        }
+        return string
+    }
+
 }
 
 lista = new LinkedList();
 lista.append(10);
 lista.append(12);
-console.log(lista.size());
+lista.append(5)
 
+console.log(lista.size());
+console.log(lista.toString())
 
 
 //Lista duplamente encadeada

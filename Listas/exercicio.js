@@ -9,110 +9,109 @@ e)Remover um elemento de uma posição específica da lista.
 
 function LinkedList(){
 
-    let Node = function(element = null){
+    let Node = function (element) {
         this.element = element;
         this.next = null;
     };
 
-    let head = null;
     let length = 0;
+    let head = null;
 
-    //mostrar todos os elementos da lista
+    this.append = function (element){
+        let node = new Node(element),
+            current;
+        if(head === null){ 
+            head = node;
+        }else{
+            current = head;
+            while(current.next){  
+                current = current.next;
+            }
+            current.next = node; 
+        }
+        length++;  
+    };
+
     this.toString = function(){
-        let current = head
-        let string = '';
+        let current = head, string = '';
 
-        while(current !== null){
+        while(current){
             string += current.element + (current.next ? '->' : '');
             current = current.next;
         }
-        string += '->null';
         return string;
     }
+         
+    this.remove = function() {
+        let current = head
 
-    //remover o primeiro elemento da lista 
-    this.remove = function(){
-        if(this.head === null){
-            console.log('Lista vazia');
-            return;
+        if(head == null) {
+            return - 1
+        }else{
+            head = current.next
+            length--
+            return current.element
         }
-
-        this.head = this.head.next;
-
     }
 
-    //inserir um elemento no inicio da lista 
-    this.append = function(element){
-        this.head = new Node(element, this.head);
-        this.length++;
-        return lista;
-    }
-
-    //Retornar a posição do elemento na lista. Se o elemento não existir, retorne -1.
     this.index = function(element) {
-        let current = this.head;
+        let current = head;
         let index = 0;
+      
         while (current !== null) {
-        if (current.element === element) {
+          if (current.element === element) {
             return index;
+          }
+          current = current.next;
+          index++;
         }
-        current = current.next;
-        index++;
-        }
+      
         return -1;
-    } 
-
-    //Remover um elemento de uma posição específica da lista.
-    this.removeIndex = function(index) {
-        if (index < 0 || index >= this.length) {
+    };
+      
+    this.removeIndex = function (position) {
+        if (position < 0 || position >= length) {
             console.log('Índice inválido');
             return;
-        }   
-        if (index === 0) {
+        }
+        if (position === 0) {
             this.remove();
             return;
         }
-        let current = this.head;
+        let current = head;
         let previous = null;
-        let currentIndex = 0;
-        while (currentIndex < index) {
+        let currentPosition = 0;
+        while (currentPosition < position) {
             previous = current;
             current = current.next;
-            currentIndex++;
+            currentPosition++;
         }
         previous.next = current.next;
-        this.length--;
+        length--;
     }
 
 }
 
-
-//exemplo de uso
-
+//Exemplo de uso: 
 lista = new LinkedList();
-lista.append(3);
-lista.append(2);
-lista.append(1);
+lista.append(10);
+lista.append(12);
+lista.append(5);
 
 //Mostrar todos os elementos da lista.
 console.log("Lista com todos os seus elementos:");
-console.log(lista.toString());   // 3 -> 2 -> 1 -> null
+console.log(lista.toString())  // 10 -> 12 -> 5 -> null
 
 //Remover o primeiro elemento da lista.
-lista.remove();
-console.log("Lista após remover o primeiro elemento:");
-console.log(lista.toString());   // 2 -> 1 -> null
-
-//Inserir um elemento no início da lista.
-console.log("Lista após inserir um elemento no início:");
-lista.append(4);
-lista.append(5);
-console.log(lista.toString()); // 4 -> 5 -> 2 -> 1 -> null
+console.log(lista.remove())
+console.log(lista.toString())
 
 //Retornar a posição do elemento na lista. Se o elemento não existir, retorne -1.
-console.log(lista.index(3)); // 1
-console.log(lista.index(4)); // -1
+console.log(lista.index(12)); // Saída: 1
+console.log(lista.index(5)); // Saída: 2
+console.log(lista.index(10)); // Saída: 0
+console.log(lista.index(8)); // Saída: -1
 
 //Remover um elemento de uma posição específica da lista.
-lista.removeIndex(1);
-lista.toString(); // 2 -> null
+lista.removeIndex(0);
+console.log(lista.toString())
