@@ -123,5 +123,5 @@ console.log(lista.index(2)); // -1
 
 //Remover um elemento de uma posição específica da lista.
 console.log("Lista após remover elemento de um índice específico");
-lista.removeIndex(0);
-lista.toString(); // 4 -> 3 -> null;
+lista.removeIndex(0);   // remover o elemento do índice 0 - no caso o número 1
+lista.toString(); // 4 -> 5 -> null;
